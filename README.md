@@ -1,1 +1,1 @@
-Bine ai venit in aplicația mea filme și povești 
+Sorin studio filme și povestei bine ai venit în Sorin studio o poveste de vis o legenda
