@@ -1,0 +1,58 @@
+HTML
+
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Filme și Povești</title>
+<style>
+body {
+  background: #101827;
+  color: white;
+  font-family: Arial;
+  text-align: center;
+  padding: 20px;
+}
+h1 { color: #ffbd35; }
+textarea {
+  width: 95%;
+  height: 180px;
+  border-radius: 10px;
+  padding: 10px;
+}
+button {
+  background: #ffbd35;
+  padding: 12px;
+  margin: 8px;
+  border: 0;
+  border-radius: 8px;
+  font-weight: bold;
+}
+</style>
+</head>
+<body>
+<h1>🎬 Filme și Povești</h1>
+<h3>Bine ai venit în aplicația mea!</h3>
+
+<h2>📖 Creează povestea ta</h2>
+<textarea id="poveste" placeholder="Scrie povestea aici..."></textarea>
+<br>
+<button onclick="salveaza()">Salvează povestea</button>
+<button onclick="citeste()">🔊 Ascultă povestea</button>
+
+<script>
+function salveaza() {
+  localStorage.setItem("poveste", document.getElementById("poveste").value);
+  alert("Poveste salvată!");
+}
+function citeste() {
+  let text = document.getElementById("poveste").value;
+  if (!text) return alert("Scrie mai întâi o poveste!");
+  let voce = new SpeechSynthesisUtterance(text);
+  voce.lang = "ro-RO";
+  speechSynthesis.speak(voce);
+}
+</script>
+</body>
+</html>
