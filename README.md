@@ -1,2 +1,1 @@
-# Ghencioiu-Sorin-
-Filme poveste
+Bine ai venit in aplicația mea filme și povești 
