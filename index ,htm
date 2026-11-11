@@ -4,102 +4,29 @@ HTML
 <html lang="ro">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sorin Studio</title>
 <style>
-body {
-  background:#101827;
-  color:white;
-  font-family:Arial;
-  padding:20px;
-}
-h1 {color:#f5bd45;text-align:center}
-.card {
-  background:#202e42;
-  padding:18px;
-  border-radius:14px;
-  margin:15px 0;
-}
-input,select,textarea,button {
-  width:100%;
-  padding:13px;
-  margin:8px 0;
-  border-radius:8px;
-  box-sizing:border-box;
-  font-size:16px;
-}
-button {
-  background:#e5a832;
-  border:0;
-  font-weight:bold;
-}
-textarea {height:180px}
+body{font-family:Arial;background:#101827;color:white;text-align:center;padding:20px}
+h1{color:#f5bd45}
+textarea{width:95%;height:130px;padding:10px;border-radius:10px}
+button{padding:14px;margin:10px;background:#f5bd45;border:0;border-radius:10px;font-weight:bold}
 </style>
 </head>
 <body>
-<h1>🎬 SORIN STUDIO</h1>
-<p style="text-align:center">Filme și povești create de tine</p>
-
-<div class="card">
-<h2>📖 Creează o poveste</h2>
-<input id="titlu" placeholder="Titlul poveștii">
-<select id="gen">
-<option>Acțiune</option>
-<option>Dragoste</option>
-<option>Aventură</option>
-<option>Mister</option>
-<option>Răzbunare</option>
-</select>
-<button onclick="poveste()">CREEAZĂ POVESTEA</button>
-</div>
-
-<div class="card">
-<h2>🎥 Creează un film</h2>
-<input id="personaj" placeholder="Numele personajului">
-<input id="loc" placeholder="Locul acțiunii">
-<button onclick="film()">CREEAZĂ SCENARIUL</button>
-</div>
-
-<div class="card">
-<h2>✍️ Rezultatul tău</h2>
-<textarea id="rezultat" placeholder="Aici va apărea creația ta..."></textarea>
-<button onclick="copiaza()">COPIAZĂ TEXTUL</button>
-<button onclick="descarca()">SALVEAZĂ TEXTUL</button>
-</div>
-
+<h1>🎬 Sorin Studio</h1>
+<h2>Filme și Povești</h2>
+<p>Bine ai venit în aplicația mea!</p>
+<textarea id="idee" placeholder="Scrie aici ideea poveștii tale..."></textarea>
+<br>
+<button onclick="creeaza()">Creează poveste</button>
+<p id="rezultat"></p>
 <script>
-function poveste() {
-let t=document.getElementById("titlu").value || "O poveste nouă";
-let g=document.getElementById("gen").value;
-document.getElementById("rezultat").value =
-t+"\nGen: "+g+
-"\n\nCAPITOLUL 1\n\nTotul a început într-o zi neașteptată. Personajul principal urma să trăiască o aventură pe care nu o va uita niciodată.\n\nCAPITOLUL 2\n\nUn secret schimbă totul. Va trebui să găsească puterea de a merge mai departe.";
-}
-function film() {
-let p=document.getElementById("personaj").value || "Sorin";
-let l=document.getElementById("loc").value || "București";
-document.getElementById("rezultat").value =
-"FILM: O NOUĂ MISIUNE\n\nPERSONAJ: "+p+
-"\nLOCUL: "+l+
-"\n\nSCENA 1\nEXT. "+l+" - ZI\n\n"+
-p+" privește atent strada. Ceva neobișnuit se întâmplă.\n\n"+
-p+": Trebuie să aflu adevărul!\n\n"+
-"SCENA 2\n\nAcțiunea continuă...";
-}
-function copiaza() {
-let r=document.getElementById("rezultat");
-r.select();
-document.execCommand("copy");
-alert("Text copiat!");
-}
-function descarca() {
-let t=document.getElementById("rezultat").value;
-let a=document.createElement("a");
-a.href=URL.createObjectURL(new Blob([t],{type:"text/plain"}));
-a.download="creatia-mea.txt";
-a.click();
-URL.revokeObjectURL(a.href);
+function creeaza(){
+let idee=document.getElementById("idee").value;
+document.getElementById("rezultat").innerText=
+idee ? "Ideea ta pentru poveste: "+idee : "Scrie mai întâi o idee!";
 }
 </script>
 </body>
-</html>creare aplicației Sorin studio 
+</html>
